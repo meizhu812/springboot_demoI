@@ -1,13 +1,16 @@
 package com.example.demo;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table("student")
 public class Student {
-    @EqualsAndHashCode.Include
+    @Id
     private String name;
     private String gender;
+    @Column("class_id")
     private String classId;
 }
